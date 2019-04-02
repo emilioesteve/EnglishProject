@@ -1,0 +1,5 @@
+c:\users\pc\documents\visual studio 2012\Projects\templateApp\templateApp\bin\templateApp.dll
+c:\users\pc\documents\visual studio 2012\Projects\templateApp\templateApp\bin\templateApp.pdb
+c:\users\pc\documents\visual studio 2012\Projects\templateApp\templateApp\obj\Debug\templateApp.csprojResolveAssemblyReference.cache
+c:\users\pc\documents\visual studio 2012\Projects\templateApp\templateApp\obj\Debug\templateApp.dll
+c:\users\pc\documents\visual studio 2012\Projects\templateApp\templateApp\obj\Debug\templateApp.pdb
