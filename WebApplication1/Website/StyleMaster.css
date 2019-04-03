@@ -1,0 +1,24 @@
+﻿
+
+#menu{
+    width: 1023px;
+    background-color: #ff0000;
+}
+
+#menu li{
+    width: 476px;
+    height:30px;
+    padding-top: 10px;
+    padding-left:15px;
+    padding-right:15px;
+    float:left;
+    font-size: 18px;
+}
+
+#menu li a{
+    color:#000000;
+}
+#menu li a:hover{
+    color:#ffd800;
+    font-size:22px;
+}

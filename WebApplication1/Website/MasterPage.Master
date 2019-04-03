@@ -5,14 +5,43 @@
 <html>
 <head runat="server">
     <title></title>
+    <link rel="stylesheet" href="StyleMaster.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+
+    <style type="text/css">
+        .auto-style1 {
+            height: 100px;
+            text-align: center;
+            background-color:#b50000;
+            color: #FFFFFF;
+            font-size: xx-large;
+        }
+        .auto-style3 {
+            color: #FFFFFF;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <table align="center" style="width: 1024px";>
+                <tr ;><td class="auto-style1">UPV GANDIA</td></tr>
+                <tr style="40px";>
+                    <td>
+                    <ul id="menu">
+                        <li><a href="Home.aspx" class="auto-style3">Home</a></li>
+                        <li><a href="Login.aspx" class="auto-style3">Login</a></li>
+                    </ul>
+                    </td></tr>
+                <tr style="height: 400px; vertical-align:top"><td>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
+
+                    </td></tr>
+                <tr style="height:30px;background-color:#b50000"><td>Copyright &copy; 2019</td></tr>
+            </table>
+           
         </div>
     </form>
 </body>
