@@ -27,9 +27,9 @@ namespace Website.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
         [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:61309/WebService1.asmx")]
-        public string Website_service_WebService1 {
+        public string Website_webservice_WebService1 {
             get {
-                return ((string)(this["Website_service_WebService1"]));
+                return ((string)(this["Website_webservice_WebService1"]));
             }
         }
     }

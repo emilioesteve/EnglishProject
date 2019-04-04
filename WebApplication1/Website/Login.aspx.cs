@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Website.service;
+using Website.webservice;
 
 namespace Website
 {
@@ -16,33 +16,47 @@ namespace Website
     
         }
 
-        protected void Secure_Click2(object sender, EventArgs e)
+        public void Secure_Click2(object sender, EventArgs e)
         {
-            int id = Convert.ToInt16(UserLogin.Text);
-            string pass = PassLogin.Text;
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
+            string pass = Password.Text.ToString();
 
             var serv = new WebService1();
-            int res = serv.Login(id, pass);
-
-            if (res == 1)
+           
+            if( pass!= "" && User.Text.ToString() != "")
             {
-                Debug.WriteLine("hola");
+                int id = Convert.ToInt16(User.Text.ToString());
+                int res = serv.Login(id, pass);
 
-                Secure.Attributes.Add("href", "UserPage.aspx");
+                if (res == 1)
+                {
+                    Debug.WriteLine("hola");
+
+                    //  Button1.Attributes.Add("href", "UserPage.aspx");
+                    Response.Redirect("Secured/UserPage.aspx");
+                }
+                if (res == 2)
+                {
+                    Debug.WriteLine("hola2");
+                    Response.Redirect("Admin/AdminPage.aspx");
+
+                    // Button1.Attributes.Add("href", "AdmminPage.aspx");
+                }
+                if (res == 0)
+                {
+                    Debug.WriteLine("hola0");
+                    Label1.Text = "Wrong password or id";
+                }
             }
-            if (res == 2)
+            else
             {
-                Debug.WriteLine("hola2");
-
-
-                Secure.Attributes.Add("href", "AdmminPage.aspx");
-            }
-            if (res == 0)
-            {
-                Debug.WriteLine("hola0");
                 Label1.Text = "Wrong password or id";
             }
         }
-    }
     }
 }

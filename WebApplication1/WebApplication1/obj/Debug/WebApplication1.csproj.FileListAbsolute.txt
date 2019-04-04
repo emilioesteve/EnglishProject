@@ -123,8 +123,8 @@ C:\Users\jcarr\Documents\GitHub\EnglishProject\WebApplication1\WebApplication1\b
 C:\Users\jcarr\Documents\GitHub\EnglishProject\WebApplication1\WebApplication1\bin\System.Data.SQLite.xml
 C:\Users\jcarr\Documents\GitHub\EnglishProject\WebApplication1\WebApplication1\bin\System.Data.SQLite.dll.config
 C:\Users\jcarr\Documents\GitHub\EnglishProject\WebApplication1\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\jcarr\Documents\GitHub\EnglishProject\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
 C:\Users\jcarr\Documents\GitHub\EnglishProject\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 C:\Users\jcarr\Documents\GitHub\EnglishProject\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
 C:\Users\jcarr\Documents\GitHub\EnglishProject\WebApplication1\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\jcarr\Documents\GitHub\EnglishProject\WebApplication1\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\jcarr\Documents\GitHub\EnglishProject\WebApplication1\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache

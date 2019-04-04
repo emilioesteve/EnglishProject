@@ -2,7 +2,7 @@
 
 #menu{
     width: 1023px;
-    background-color: #ff0000;
+    background-color: #00ff21;
 }
 
 #menu li{
@@ -16,9 +16,9 @@
 }
 
 #menu li a{
-    color:#000000;
+    color:#00ff90;
 }
 #menu li a:hover{
-    color:#ffd800;
+    color:#00ffff;
     font-size:22px;
 }

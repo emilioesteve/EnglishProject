@@ -21,12 +21,46 @@ namespace WebApplication1
     [System.Web.Script.Services.ScriptService]
     public class WebService1 : System.Web.Services.WebService
     {
+        [WebMethod]
+        public List<Subject> getSubjectsXML()
+        {
+            List<Subject> list = new List<Subject>();
+            SQLiteConnection conn = new SQLiteConnection("DataSource =" + @"C:\Users\jcarr\Documents\GitHub\EnglishProject\project.db" + "; Version = 3");
+            conn.Open();
+            String query = "SELECT * FROM Subject";
+            SQLiteCommand comm = new SQLiteCommand(query, conn);
+            SQLiteDataReader reader = comm.ExecuteReader();
 
+            DataTable dt = new DataTable();
+            dt.Load(reader);
+
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                Debug.WriteLine(dt);
+                Student a = new Student();
+                int id = Convert.ToInt16(dr["Id"]);
+                string title = dr["Title"].ToString();
+                int cred = Convert.ToInt16(dr["Credits"]);
+
+
+                Subject sub = new Subject();
+                sub.Id = id;
+                sub.Title = title;
+                sub.Credits = cred;
+
+                list.Add(sub);
+
+            }
+
+            return list;
+
+        }
 
         [WebMethod]
-        public Student[] GetStudentsXML()
+        public List<Student> GetStudentsXML()
         {
-            Student[] list = new Student[30];
+            List<Student> list = new List<Student>();
             SQLiteConnection conn = new SQLiteConnection("DataSource =" +  @"C:\Users\jcarr\Documents\GitHub\EnglishProject\project.db" + "; Version = 3");
             conn.Open();
             String query = "SELECT Name, Age, Nationality, Password, Id FROM Student";
@@ -37,7 +71,6 @@ namespace WebApplication1
             dt.Load(reader);
             Debug.WriteLine(dt);
 
-            int i = 0;
             foreach(DataRow dr in dt.Rows){
                 Debug.WriteLine(dt);
                 Student a = new Student();
@@ -47,16 +80,14 @@ namespace WebApplication1
                 int age = Convert.ToInt16(dr["Age"]);
                 string password = dr["Password"].ToString();
 
-                list[i] = new Student()
-                {
-                    Id = id,
-                    Name = name,
-                    Age = age,
-                    Password = password,
-                    Nationality = nationality
-                };
-                    
-                i++;
+                Student jeje = new Student();
+                jeje.Id = id;
+                jeje.Name = name;
+                jeje.Nationality = nationality;
+                jeje.Age = age;
+                jeje.Password = password;
+
+                list.Add(jeje);
 
             }
             
@@ -65,9 +96,9 @@ namespace WebApplication1
         }
 
         [WebMethod]
-        public Professor[] GetProfessorsXML()
+        public List<Professor> GetProfessorsXML()
         {
-            Professor[] list = new Professor[30];
+            List<Professor> list = new List<Professor>();
             SQLiteConnection conn = new SQLiteConnection("DataSource =" + @"C:\Users\jcarr\Documents\GitHub\EnglishProject\project.db" + "; Version = 3");
             conn.Open();
             String query = "SELECT * FROM Professor";
@@ -86,14 +117,12 @@ namespace WebApplication1
                 string name = dr["Name"].ToString();
                 string password = dr["Password"].ToString();
 
-                list[i] = new Professor()
-                {
-                    Id = id,
-                    Name = name,
-                    Password = password
-                };
+                Professor jeje = new Professor();
+                jeje.Name = name;
+                jeje.Password = password;
+                jeje.Id = id;
 
-                i++;
+                list.Add(jeje);
 
             }
 
@@ -104,18 +133,12 @@ namespace WebApplication1
         public int Login(int id, string password)
         {
 
-            Student[] listS = new Student[30];
-            Professor[] listP = new Professor[30];
-
-            listS = GetStudentsXML();
-
             List<Professor> Plist = new List<Professor>();
             List<Student> Slist = new List<Student>();
-            listP = GetProfessorsXML();
+            Plist = GetProfessorsXML();
+            Slist = GetStudentsXML();
 
-            Plist = listP.ToList();
-            Slist = listS.ToList();
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < Slist.Count; i++)
             {
                 if (Slist[i].Id == id && Slist[i].Password == password )
                 {
@@ -123,7 +146,7 @@ namespace WebApplication1
                 }
 
             }
-            for (int i = 0; i < 1; i++)
+            for (int i = 0; i < Plist.Count; i++)
             {
                 if (Plist[i].Id == id && Plist[i].Password == password)
                 {
@@ -132,5 +155,54 @@ namespace WebApplication1
             }
             return 0;      
         }
+
+        [WebMethod]
+        public void AddStudent(int id,string name,string nation,int age,string pass)
+        {
+            SQLiteConnection conn = new SQLiteConnection("DataSource =" + @"C:\Users\jcarr\Documents\GitHub\EnglishProject\project.db" + "; Version = 3");
+            conn.Open();
+            String query = "INSERT INTO Student VALUES ('"+id+"','"+name+"','"+nation+"','"+age+"','"+pass+"');";
+
+            SQLiteCommand comm = new SQLiteCommand(query, conn);
+
+            SQLiteDataAdapter da = new SQLiteDataAdapter();
+            da.InsertCommand = comm;
+            da.InsertCommand.ExecuteNonQuery();
+        }
+
+
+        [WebMethod]
+        public void ModifyStudent(int id, int age, string pass)
+        {
+            
+            SQLiteConnection conn = new SQLiteConnection("DataSource =" + @"C:\Users\jcarr\Documents\GitHub\EnglishProject\project.db" + "; Version = 3");
+            conn.Open();
+            String query = "UPDATE Student SET Password ='"+pass+"',Age='"+age+"' WHERE Id = '" + id + "';";
+
+            SQLiteCommand comm = new SQLiteCommand(query, conn);
+
+            SQLiteDataAdapter da = new SQLiteDataAdapter();
+            da.UpdateCommand = comm; 
+            da.UpdateCommand.ExecuteNonQuery();
+
+        }
+
+        [WebMethod]
+        public void DeleteStudent(int id)
+        {
+           
+            SQLiteConnection conn = new SQLiteConnection("DataSource =" + @"C:\Users\jcarr\Documents\GitHub\EnglishProject\project.db" + "; Version = 3");
+            conn.Open();
+            String query = "DELETE FROM Student WHERE Id='"+id+"';";
+
+            SQLiteCommand comm = new SQLiteCommand(query, conn);
+
+            SQLiteDataAdapter da = new SQLiteDataAdapter();
+            da.UpdateCommand = comm;
+            da.UpdateCommand.ExecuteNonQuery();
+
+        }
     }
+
+    
 }
