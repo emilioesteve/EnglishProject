@@ -65,5 +65,12 @@ namespace Website.Admin
                 TextBox7.Text.ToString());
             }
         }
+
+        protected void Button4_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("../Login.aspx");
+
+        }
     }
 }

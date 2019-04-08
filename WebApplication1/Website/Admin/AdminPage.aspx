@@ -7,6 +7,7 @@
         }
         .auto-style5 {
             height: 262px;
+            width: 433px;
         }
     </style>
 </asp:Content>
@@ -33,6 +34,7 @@
             </td>
             <td class="auto-style5">
                 <asp:ListBox ID="ListBox2" runat="server" Height="146px" Width="401px"></asp:ListBox>
+                &nbsp;
                 <br />
                 <br />
                 <asp:Button ID="Button3" runat="server" Text="Delete" Width="94px" OnClick="Button3_Click" />
@@ -46,19 +48,18 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Age&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Password<br />
                 ID: <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
             </td>
+            <td>
+
+
+                <asp:Button ID="Button4" runat="server" OnClick="Button4_Click" Text="LogOut" Width="74px" />
+
+
+            </td>
         </tr>
       
 
         </table>
 
-    <table style="height: 0px; width: 29px">
-
-
-        <tr>
-            <td>&nbsp;</td>
-        </tr>
-
-
-    </table>
+    
 
 </asp:Content>
